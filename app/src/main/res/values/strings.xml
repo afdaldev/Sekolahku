@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sekolahku</string>
+
+    <string-array name="spinner_jenjang_item">
+        <item>SD</item>
+        <item>SMP</item>
+        <item>SMA</item>
+    </string-array>
+
+</resources>
