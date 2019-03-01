@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailActivity">
+
+    <TextView
+        android:id="@+id/textview_alamat"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_name"
+        tools:text="Jl. Sahabat Raya" />
+    <TextView
+        android:id="@+id/label_alamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:text="Alamat"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+    <TextView
+        android:id="@+id/textview_hobby"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="205dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_name"
+        tools:text="Coding" />
+
+    <TextView
+        android:id="@+id/label_hobby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:text="Hobby"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/image_header"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/label_jenis_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="Jenis Kelamin"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/image_header"
+        tools:layout_editor_absoluteX="32dp" />
+    <TextView
+        android:id="@+id/textview_jenis_kelamin"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="102dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_name"
+        tools:text="Pria" />
+    <TextView
+        android:id="@+id/textview_pendidikan"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_name"
+        tools:text="SMA" />
+    <TextView
+        android:id="@+id/label_pendidikan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:text="Pendidikan Terakhir"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+
+    <ImageView
+        android:id="@+id/image_header"
+        android:layout_width="157dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Student"
+        android:src="@drawable/ic_student"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/image_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:layout_constraintBottom_toBottomOf="@+id/image_header"
+        tools:layout_editor_absoluteX="0dp" />
+    <TextView
+        android:id="@+id/label_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textSize="10sp"
+        android:text="Nama"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+
+    <TextView
+        android:id="@+id/textview_name"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        tools:layout_editor_absoluteY="168dp"
+        tools:text="Afdal" />
+    <TextView
+        android:id="@+id/label_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="HandPhone"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+    <TextView
+        android:id="@+id/textview_phone"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/image_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_name"
+        tools:text="082188xxxxx" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
