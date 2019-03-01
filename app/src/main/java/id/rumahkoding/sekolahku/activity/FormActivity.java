@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -46,8 +47,54 @@ public class FormActivity extends AppCompatActivity {
         edtAddress = findViewById(R.id.edt_address);
         btnSave = findViewById(R.id.btn_save);
 
+        long id = getIntent().getLongExtra("id", 0);
+
         databaseManager = new DatabaseManager(this);
         databaseManager.open();
+
+        Student student = null;
+
+        if (id > 0){
+            student = databaseManager.getStudentById(id);
+        }
+
+        if (student != null) {
+            edtFirstName.setText(student.getFirstName());
+            edtLastName.setText(student.getLastName());
+            edtEmail.setText(student.getEmail());
+            edtPhone.setText(student.getPhone());
+            edtAddress.setText(student.getAddress());
+
+            String gender = student.getGender();
+
+            if (gender.equals("Pria")) {
+                radioGroup.check(R.id.radio_man);
+            } else if (gender.equals(R.id.radio_woman)) ;
+
+            ArrayAdapter adapter = (ArrayAdapter) spinnerStudy.getAdapter();
+            int position = adapter.getPosition(student.getEducation());
+            spinnerStudy.setSelection(position);
+
+            String hobby = student.getHobby();
+
+            if (hobby.contains("Membaca")) {
+                checkBoxReading.setChecked(true);
+            } else {
+                checkBoxReading.setChecked(false);
+            }
+
+            if (hobby.contains("Menulis")) {
+                checkBoxWriting.setChecked(true);
+            } else {
+                checkBoxWriting.setChecked(false);
+            }
+
+            if (hobby.contains("Coding")) {
+                checkBoxCoding.setChecked(true);
+            } else {
+                checkBoxCoding.setChecked(false);
+            }
+        }
 
         btnSave.setOnClickListener(
                 new View.OnClickListener() {
@@ -128,13 +175,21 @@ public class FormActivity extends AppCompatActivity {
         if (!isValid){
             isValidateForm();
         }else {
-            long id = databaseManager.addStudent(student);
+            long intentId = getIntent().getLongExtra("id",0);
 
-            if (id == -1){
-                Toast.makeText(this, "Data gagal disimpan", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(this, "Data Berhasil Disimpan dengan id "+id, Toast.LENGTH_SHORT).show();
+            if (intentId > 0){
+                student.setId(intentId);
+                databaseManager.updateStudent(student);
+                Toast.makeText(this, "Data Berhasil di Update", Toast.LENGTH_SHORT).show();
                 finish();
+            }else{
+                long id = databaseManager.addStudent(student);
+                if (id == -1){
+                    Toast.makeText(this, "Data gagal disimpan", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "Data Berhasil Disimpan dengan id "+id, Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         }
     }

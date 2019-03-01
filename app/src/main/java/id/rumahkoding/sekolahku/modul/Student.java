@@ -1,6 +1,9 @@
 package id.rumahkoding.sekolahku.modul;
 
-public class Student {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Student implements Parcelable {
     private long id;
     private String firstName;
     private String lastName;
@@ -10,6 +13,32 @@ public class Student {
     private String education;
     private String hobby;
     private String address;
+
+    public Student(){}
+
+    protected Student(Parcel in) {
+        id = in.readLong();
+        firstName = in.readString();
+        lastName = in.readString();
+        phone = in.readString();
+        email = in.readString();
+        gender = in.readString();
+        education = in.readString();
+        hobby = in.readString();
+        address = in.readString();
+    }
+
+    public static final Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 
     public long getId() {
         return id;
@@ -81,5 +110,23 @@ public class Student {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(phone);
+        dest.writeString(email);
+        dest.writeString(gender);
+        dest.writeString(education);
+        dest.writeString(hobby);
+        dest.writeString(address);
     }
 }
